@@ -1,0 +1,80 @@
+# 🔒 CERTIFICADOS Y CLAVES (MUY IMPORTANTE)
+*.crt
+*.key
+*.pem
+*.pfx
+*.p12
+*.jks
+*.keystore
+ca-bundle.crt
+ssl/
+certs/
+certificates/
+
+# 🔑 VARIABLES DE ENTORNO Y SECRETOS
+.env
+.env.local
+.env.*.local
+.env.production.local
+.env.development.local
+.env.test.local
+
+# 📦 DEPENDENCIAS
+node_modules/
+vendor/
+*.egg-info/
+dist/
+build/
+__pycache__/
+*.pyc
+
+# 💾 IDE Y EDITORES
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# 📁 LOGS Y TEMPORALES
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.eslintcache
+
+# 🔐 ARCHIVOS SENSIBLES ADICIONALES
+config/secrets.json
+config/database.yml
+credentials.json
+aws-credentials
+.aws/credentials
+.ssh/
+
+# 📊 BASES DE DATOS LOCALES
+*.db
+*.sqlite
+*.sqlite3
+database.yml
+
+# 📤 ARCHIVOS COMPILADOS
+*.class
+*.jar
+*.exe
+*.o
+*.so
+
+# 🎯 ESPECÍFICO DEL PROYECTO (ajusta según sea necesario)
+dist/
+build/
+coverage/
+.next/
+out/

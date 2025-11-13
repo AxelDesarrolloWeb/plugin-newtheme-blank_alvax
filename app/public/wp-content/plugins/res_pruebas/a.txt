@@ -1,0 +1,8 @@
+$mensaje = "Mensaje<?php echo 'DELETE, DROP, UPDATE' ; ?>guardado";
+echo sanitize_text_field($mensaje);
+
+$_POST['email'] = 'pruebas ?????@pruebas.com !!!';
+$email = $_POST['email'];
+echo sanitize_email($email);
+
+
