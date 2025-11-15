@@ -207,6 +207,9 @@ class NEW_Admin
     /**
      * Método para añadir los menús
      * Utilizamos el método run() para crear el menú
+     * 
+     * @since 1.0.0
+     * @access public
      */
 
     public function add_menu()

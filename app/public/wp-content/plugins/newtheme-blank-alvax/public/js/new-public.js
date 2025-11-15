@@ -7,5 +7,5 @@
 	 */
     
     
-alert('Menu Data')
+
 })( jQuery );
