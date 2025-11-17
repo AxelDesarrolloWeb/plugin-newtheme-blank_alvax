@@ -1,8 +1,8 @@
-<?php
+<?php 
 /**
  * Registrar todas las acciones y filtros para el complemento
  *
- * @link       http://misitioweb.com
+ * @link       https://www.linkedin.com/in/alvax
  * @since      1.0.0
  * @package    newtheme-blank
  * @subpackage newtheme-blank/includes
@@ -18,7 +18,7 @@
  * @since      1.0.0
  * @package    newtheme-blank
  * @subpackage newtheme-blank/includes
- * @author     Jhon J.R <email@example.com>
+ * @author     Alvax <alvax019@gmail.com>
  *
  * @property array $actions
  * @property array $filters
@@ -50,162 +50,151 @@ class NEW_Cargador {
 	 * @access   protected
 	 * @var      array    $shortcodes  Los Shortcodes registrados en WordPress para ejecutar cuando se carga el theme.
 	 */
-	 protected $shortcodes;
-
+	protected $shortcodes;
+	
     /**
-     * Constructor
-     *
-	 * Inicializar las propiedades utilizadas para mantener las acciones y los filtros.
-	 *
-	 * @since    1.0.0
-	 */
+	 * Constructor
+	*
+	* Inicializar las propiedades utilizadas para mantener las acciones y los filtros.
+	*
+	* @since    1.0.0
+	*/
     public function __construct() {
-
-        $this->actions 		= [];
+		
+		$this->actions 		= [];
 		$this->filters 		= [];
 		$this->shortcodes   = [];
-
+		
     }
-
-    /**
+	
+	
+	/**
 	 * Añade una acción nueva al array ($this->actions) a iterar para registrarla en WordPress.
-	 *
+	 * 
 	 * @since    1.0.0
-     * @access   public
-     *
-	 * @param    string    $hook             El nombre de la acción de WordPress que se está registrando.
-	 * @param    object    $component        Una referencia a la instancia del objeto en el que se define la acción.
-	 * @param    string    $callback         El nombre de la definición del método/función en el $component.
-	 * @param    int       $priority         Opcional. La prioridad en la que se debe ejecutar la función callback. El valor predeterminado es 10.
-	 * @param    int       $accepted_args    Opcional. El número de argumentos que se deben pasar en el $callback. El valor predeterminado es 1.
-	 */
-    public function add_action( $hook, $component, $callback, $priority = 10, $accepted_args = 1 ) {
-
-        $this->actions = $this->add( $this->actions, $hook, $component, $callback, $priority, $accepted_args );
-
-    }
-
-    /**
-	 * Añade un filtro nueva al array ($this->filter) a iterar para registrarla en WordPress.
-	 *
+	 * @access   public
+	 * 
+	 * @param string $hook El nombre de la acción de WordPress que se está registrando.
+	 * @param object $component Una referencia a la instancia del objeto en el que se define la acción.
+	 * @param string $callback El nombre de la definición del método/función en el $component.
+	 * @param int $priority Optional. La prioridad en la que se debe ejecutar la función callback. El valor predeterminado es 10.
+	 * @param int $accepted_args Optional. El número de argumentos que se deben pasar en el $callback. El valor predeterminado es 1.
+	*/
+	public function add_action($hook, $component, $callback, $priority = 10, $accepted_args = 1) {
+		$this-> actions =$this->add($this->actions, $hook, $component, $callback, $priority, $accepted_args);
+	}
+	
+	/**
+	 * Añade un filtro nueva al array ($this->filter) a iterar para registrarla en WordPress
+	 * 
 	 * @since    1.0.0
-     * @access   public
-     *
-	 * @param    string    $hook             El nombre del filtro de WordPress que se está registrando.
-	 * @param    object    $component        Una referencia a la instancia del objeto en el que se define el filtro.
-	 * @param    string    $callback         El nombre de la definición del método/función en el $component.
-	 * @param    int       $priority         Opcional. La prioridad en la que se debe ejecutar la función callback. El valor predeterminado es 10.
-	 * @param    int       $accepted_args    Opcional. El número de argumentos que se deben pasar en el $callback. El valor predeterminado es 1.
-	 */
-    public function add_filter( $hook, $component, $callback, $priority = 10, $accepted_args = 1 ) {
+	 * @access   public
+	 * 
+	 * @param string $hook El nombre del filtro de WordPress que se está registrando.
+	 * @param object $component Una referencia a la instancia del objeto en el que se define el filtro.
+	 * @param string $callback El nombre de la definición del método/función en el $component.
+	 * @param int $priority Optional. La prioridad en la que se debe ejecutar la función callback. El valor predeterminado es 10.
+	 * @param int $accepted_args Optional. El número de argumentos que se deben pasar en el $callback. El valor predeterminado es 1.
+	 * 
+	*/
 
-        $this->filters = $this->add( $this->filters, $hook, $component, $callback, $priority, $accepted_args );
-
-    }
-
-    /**
+	public function add_filter($hook, $component, $callback, $priority = 10, $accepted_args = 1) {
+		$this-> actions =$this->add($this->actions, $hook, $component, $callback, $priority, $accepted_args);
+	}
+	
+	
+	/**
 	 * Función de utilidad que se utiliza para registrar las acciones y los ganchos en una sola iterada.
-	 *
+	 * 
 	 * @since    1.0.0
 	 * @access   private
-     *
-	 * @param    array     $hooks            La colección de ganchos que se está registrando (es decir, acciones o filtros).
-	 * @param    string    $hook             El nombre del filtro de WordPress que se está registrando.
-	 * @param    object    $component        Una referencia a la instancia del objeto en el que se define el filtro.
-	 * @param    string    $callback         El nombre de la definición del método/función en el $component.
-	 * @param    int       $priority         La prioridad en la que se debe ejecutar la función.
-	 * @param    int       $accepted_args    El número de argumentos que se deben pasar en el $callback.
-     *
-	 * @return   array                       La colección de acciones y filtros registrados en WordPress para proceder a iterar.
-	 */
-    private function add( $hooks, $hook, $component, $callback, $priority, $accepted_args ) {
-
-        $hooks[] = [
-            'hook'          => $hook,
-            'component'     => $component,
-            'callback'      => $callback,
-            'priority'      => $priority,
-            'accepted_args' => $accepted_args
-        ];
-
-        return $hooks;
-
-	}
-
-	 /**
-     * Añade un shortcode nuevo al array ($this->shortcodes) a iterar para agregarñps en WordPress.
-     *
-     * @since    1.0.0
-     * @access   public
-     *
-     * @param    string    $tag              El nombre del Shortcode de WordPress que se está registrando.
-     * @param    object    $component        Una referencia a la instancia del objeto en el que se define el el Shortcode.
-     * @param    string    $callback         El nombre de la definición del método/función en el $component.
-     */
-	 public function add_shortcode( $tag, $component, $callback ) {
-
-        $this->shortcodes = $this->add_s( $this->shortcodes, $tag, $component, $callback );
-
+	 * 
+	 * @param array $hooks La colección de ganchos que se está registrando (es decir, acciones o filtros).
+	 * @param string $hook El nombre del filtro de WordPress que se está registrando.
+	 * @param object $component Una referencia a la instancia del objeto en el que se define el filtro.
+	 * @param string $callback El nombre de la definición del método/función en el $component.
+	 * @param int $priority La prioridad en la que se debe ejecutar la función.
+	 * @param int $accepted_args El número de argumentos que se deben pasar en el $callback.
+	 * 
+	*/
+	
+	public function add($hooks, $hook, $component, $callback, $priority, $accepted_args) {
+		$hooks[] = [
+			'hook' => $hook,
+			'component' => $component,
+			'callback' => $callback,
+			'priority' => $priority,
+			'accepted_args' => $accepted_args
+		];
+		
+		return $hooks;
 	}
 
 	/**
-     * Función de utilidad que se utiliza para registrar los shortcode en una sola iterada.
-     *
-     * @since    1.0.0
-     * @access   private
-     *
-     * @param    array     $shortcodes       La colección de Shortcodes que se está registrando.
-     * @param    string    $tag              El nombre del Shortcode de WordPress que se está registrando.
-     * @param    object    $component        Una referencia a la instancia del objeto en el que se define el el Shortcode.
-     * @param    string    $callback         El nombre de la definición del método/función en el $component.
-     *
-     * @return   array                       La colección de Shortcodes en WordPress para proceder a iterar.
-     */
-	 private function add_s( $shortcodes, $tag, $component, $callback ) {
+	 * Añade un shortcode nuevo al array ($this->shortcodes) a iterar para agregarlos en WordPress
+	 * 
+	 * @since 1.0.0
+	 * @access public 
+	 * 
+	 * @param string $tag El nombre del Shortcode de Wordpress que se está registrando.
+	 * @param object $component Una referencia a la instancia del objeto en el que se define en el Shortcode.
+	 * @param string $callback El nombre de la definición del método/función en el $component.
+	 * 
+	*/
+	public function add_shortcode($tag, $component, $callback) {
+		$this->shortcodes = $this->add_s($this->shortcodes, $tag, $component, $callback);
+	}
 
-        $shortcodes[] = [
-            'tag'           => $tag,
-            'component'     => $component,
-            'callback'      => $callback
-        ];
+	/**
+	 * Función de utilidad que se utiliza para registrar los shortcodes en una sola iterada.
+	 * 
+	 * @since 1.0.0
+	 * @access private
+	 * 
+	 * @param array $shortcodes La colección de ShortCodes que se está registrando.
+	 * @param string $tag El nombre del Shortcode de WordPress que está registrando.
+	 * @param object $component Una referencia a la instancia del objeto en el que se define en el Shortcode.
+	 * @param string $callback El nombre de la definición del método/función en el $component.
+	 * 
+	 * @return array La colección de Shortcodes en wordpress para proceder a iterar.
+	 * 
+	*/
 
-        return $shortcodes;
+	private function add_s($shortcodes, $tag, $component, $callback) {
+		$shortcodes[] = [
+			'tag' => $tag,
+			'component' => $component,
+			'callback' => $callback
+		];
 
-    }
+		return $shortcodes;
+	}
 
-
-    /**
+	/**
 	 * Registre los filtros y acciones con WordPress.
-	 *
-	 * @since    1.0.0
-     * @access   public
-	 */
-    public function run() {
+	 * 
+	 * @since 1.0.0
+	 * @access public 
+	 * 
+	*/
 
-        foreach( $this->actions as $hook_u ) {
+	public function run() {
+		foreach($this->actions as $hook_u) {
+			extract($hook_u, EXTR_OVERWRITE);
 
-            extract( $hook_u, EXTR_OVERWRITE );
-
-            add_action( $hook, [ $component, $callback ], $priority, $accepted_args );
-
-        }
-
-        foreach( $this->filters as $hook_u ) {
-
-            extract( $hook_u, EXTR_OVERWRITE );
-
-            add_filter( $hook, [ $component, $callback ], $priority, $accepted_args );
-
+			add_action($hook, [$component, $callback], $priority, $accepted_args);
 		}
 
-		foreach( $this->shortcodes as $shortcode ) {
+		foreach($this->filters as $hook_u) {
+			extract($hook_u, EXTR_OVERWRITE);
 
-            extract( $shortcode, EXTR_OVERWRITE );
+			add_filter($hook, [$component, $callback], $priority, $accepted_args);
+		}
 
-            add_shortcode( $tag, [ $component, $callback ] );
+		foreach($this->shortcodes as $shortcode) {
+			extract($shortcode, EXTR_OVERWRITE);
 
-        }
-
-    }
-
+			add_shortcode($tag, [$component, $callback]);
+		}
+	}
 }

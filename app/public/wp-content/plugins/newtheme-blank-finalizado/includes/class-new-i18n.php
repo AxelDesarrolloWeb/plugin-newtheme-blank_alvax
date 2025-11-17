@@ -4,7 +4,7 @@
  *
  * Carga y define los archivos de internacionalización de este plugin para que este listo para su traducción.
  *
- * @link       https://www.linkedin.com/in/alvax
+ * @link       http://misitioweb.com
  * @since      1.0.0
  *
  * @package    newtheme-blank
@@ -17,7 +17,7 @@
  * @since      1.0.0
  * @package    newtheme-blank
  * @subpackage newtheme-blank/includes
- * @author     Alvax <alvax019@gmail.com>
+ * @author     Jhon J.R <email@example.com>
  */
 class NEW_i18n {
     

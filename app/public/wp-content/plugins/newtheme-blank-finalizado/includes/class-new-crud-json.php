@@ -4,7 +4,7 @@
 *
 * Este archivo se utiliza para marcar los aspectos de administración del plugin.
 *
-* https://www.linkedin.com/in/alvax
+* @link http://misitioweb.com
 * @since desde 1.0.0
 *
 * @package newtheme-blank

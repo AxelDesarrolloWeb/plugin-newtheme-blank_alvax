@@ -3,7 +3,7 @@
  * Permite crear cajas de metadatos 
  * para algún tipo de post
  *
- * https://www.linkedin.com/in/alvax
+ * @link       http://misitioweb.com
  * @since      1.0.0
  *
  * @package    newtheme-blank
@@ -15,9 +15,9 @@
  * crear una caha con uno o más metatados 
  *
  * @since      1.0.0
- * @package newtheme-blank
+ * @package    newtheme-blank
  * @subpackage newtheme-blank/includes
- * @author Alvax <alvax019@gmail.com>
+ * @author     Jhon J.R <email@example.com>
  */
 abstract class NEW_Metabox {
     

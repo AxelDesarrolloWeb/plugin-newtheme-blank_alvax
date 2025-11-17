@@ -2,7 +2,7 @@
 /**
  * Se activa en la activación del plugin
  *
- * https://www.linkedin.com/in/alvax
+ * @link       http://misitioweb.com
  * @since      1.0.0
  *
  * @package    newtheme-blank
@@ -13,9 +13,9 @@
  * Esta clase define todo lo necesario durante la activación del plugin
  *
  * @since      1.0.0
-* @package newtheme-blank
+ * @package    newtheme-blank
  * @subpackage newtheme-blank/includes
- * @author Alvax <alvax019@gmail.com>
+ * @author     Jhon J.R <email@example.com>
  */
 class NEW_Ajax {
 

@@ -1,26 +1,30 @@
-<?php
-/**
- * Se activa cuando el plugin va a ser desinstalado
- *
- * @link       http://misitioweb.com
- * @since      1.0.0
- *
- * @package    newtheme_blank
- */
+<?php 
 
-if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
-	exit;
+/**
+*Se activa cuando el plugin va a ser desinstalado
+*
+* @link http://www.linkedin.com/in/alvax
+* @since 1.0.0
+*
+* @package newtheme_blank
+*/
+
+if (!defined('WP_UNINSTALL_PLUGIN')) {
+    exit;
 }
 
-/*
- * Agregar todo el codigo necesario
- * para eliminar ( como las bases de datos, limpiar cache,
- * limpiar enlaces permanentes, etc. ) en la desinstalacion
- * del plugin
+/**
+ * Agregar todo el código necesario 
+ * para eliminar ( como las bases de datos, limpiar caché, 
+ * limpiar enlaces permanentes, etc.) en la desinstalación 
+ * del plugin 
  */
 
 global $wpdb;
 
-$sql = "DROP TABLE IF EXISTS {$wpdb->prefix}newtheme_data";
+$sql = "DROP TABLE IF EXISTS {$wpdb->prefix}-newtheme_data";
 
-$wpdb->query( $sql );
+$wpdb->query($sql);
+
+
+
