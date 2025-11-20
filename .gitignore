@@ -78,3 +78,5 @@ build/
 coverage/
 .next/
 out/
+# ignora la carpeta que instalamos con 'npm install -g grunt-cli' y todo el contenido que tenga dentro: 
+make_pot_gruntfile_js/ 
